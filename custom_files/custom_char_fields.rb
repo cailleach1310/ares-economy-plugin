@@ -1,0 +1,95 @@
+module AresMUSH
+  module Profile
+    class CustomCharFields
+      
+      # Gets custom fields for display in a character profile.
+      #
+      # @param [Character] char - The character being requested.
+      # @param [Character] viewer - The character viewing the profile. May be nil if someone is viewing
+      #    the profile without being logged in.
+      #
+      # @return [Hash] - A hash containing custom fields and values. 
+      #    Ansi or markdown text strings must be formatted for display.
+      # @example
+      #    return { goals: Website.format_markdown_for_html(char.goals) }
+      def self.get_fields_for_viewing(char, viewer)
+         if (char.limit > 0)
+             limit = Economy.prettify(char.limit)
+         else 
+             limit = "Not set."
+         end
+         if (char.block_expiry)
+             expiry = "Expiry Date: " + char.block_expiry
+         else
+             expiry = char.block_expiry
+         end
+         return { pen_traits: PenTraits.build_web_char_data(char, viewer),
+                  limit: Website.format_markdown_for_html(limit),
+                  block_info: Website.format_markdown_for_html(char.block_info),
+                  block_expiry: Website.format_markdown_for_html(expiry),
+                  modifiers: Economy.build_web_econ_modifiers(char,viewer),
+                  econ_chart: Economy.build_web_econ_chart(char,viewer) }
+      end
+    
+      # Gets custom fields for the character profile editor.
+      #
+      # @param [Character] char - The character being requested.
+      # @param [Character] viewer - The character editing the profile.
+      #
+      # @return [Hash] - A hash containing custom fields and values. 
+      #    Multi-line text strings must be formatted for editing.
+      # @example
+      #    return { goals: Website.format_input_for_html(char.goals) }
+      def self.get_fields_for_editing(char, viewer)
+        return {}
+      end
+
+      # Gets custom fields for character creation (chargen).
+      #
+      # @param [Character] char - The character being requested.
+      #
+      # @return [Hash] - A hash containing custom fields and values. 
+      #    Multi-line text strings must be formatted for editing.
+      # @example
+      #    return { goals: Website.format_input_for_html(char.goals) }
+      def self.get_fields_for_chargen(char)
+        if PenTraits.not_set?(char)
+          PenTraits.init_traits(char)
+        end
+        return { pen_traits: PenTraits.build_web_char_data(char, char),
+           cg_traits_set: !PenTraits.traits_not_set(char),
+           cg_traits_max_points: Global.read_config("pentraits", "trait_points") }
+      end
+      
+      # Saves fields from profile editing.
+      #
+      # @param [Character] char - The character being updated.
+      # @param [Hash] char_data - A hash of character fields and values. Your custom fields
+      #    will be in char_data[:custom]. Multi-line text strings should be formatted for MUSH.
+      #
+      # @return [Array] - A list of error messages. Return an empty array ([]) if there are no errors.
+      # @example
+      #        char.update(goals: Website.format_input_for_mush(char_data[:custom][:goals]))
+      #        return []
+      def self.save_fields_from_profile_edit(char, char_data)
+        return []
+      end
+      
+      # Saves fields from character creation (chargen).
+      #
+      # @param [Character] char - The character being updated.
+      # @param [Hash] chargen_data - A hash of character fields and values. Your custom fields
+      #    will be in chargen_data[:custom]. Multi-line text strings should be formatted for MUSH.
+      #
+      # @return [Array] - A list of error messages. Return an empty array ([]) if there are no errors.
+      # @example
+      #        char.update(goals: Website.format_input_for_mush(chargen_data[:custom][:goals]))
+      #        return []
+      def self.save_fields_from_chargen(char, chargen_data)
+        PenTraits.save_char(char,chargen_data)
+        return []
+      end
+      
+    end
+  end
+end

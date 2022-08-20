@@ -1,0 +1,85 @@
+{{page-title "econ-management"}}
+<h1>Economy Management</h1>
+
+{{#if this.model.limits.investors}}
+<h2>Current Limits</h2>
+<div class="table-responsive">
+<table class="table table-striped">
+  <thead>
+      <th></th>
+      {{#each this.model.limits.titles as |title|}}
+      <th>{{title}}</th>
+      {{/each}}
+  </thead>
+  
+  <tbody>
+    {{#each this.model.limits.investors as |char| }}
+    <tr>
+      {{#each-in char as |field value| }}
+        <td>
+          {{#if (eq field 'char')}}
+            <CharIconInline @char={{value}} />
+          {{else}}
+             {{#if (eq value 'action')}}
+                 <button name="reset" {{action 'EconReset' char.char.name}} class="btn btn-secondary">Reset</button>
+             {{else}}
+                {{value}}
+             {{/if}} 
+          {{/if}}
+        </td>
+        {{/each-in}}
+    </tr>
+    {{/each}}
+  </tbody>
+
+</table>
+</div>
+{{/if}}
+
+{{#if this.model.blocked.investors}}
+<h2>Current Blocks</h2>
+<div class="table-responsive">
+<table class="table table-striped">
+  <thead>
+      <th></th>
+      {{#each this.model.blocked.titles as |title|}}
+      <th>{{title}}</th>
+      {{/each}}
+  </thead>
+
+  <tbody>
+    {{#each this.model.blocked.investors as |char| }}
+    <tr>
+      {{#each-in char as |field value| }}
+        <td>
+          {{#if (eq field 'char')}}
+            <CharIconInline @char={{value}} />
+          {{else}}
+             {{#if (eq value 'action')}}
+                 <button name="unblock" {{action 'EconUnblock' char.char.name}} class="btn btn-secondary">Unblock</button>
+             {{else}}
+                {{value}}
+             {{/if}}
+          {{/if}}
+        </td>
+        {{/each-in}}
+    </tr>
+    {{/each}}
+  </tbody>
+
+</table>
+</div>
+{{else}}
+{{/if}}
+
+<br><br>
+<EconBlockChar @setEconBlock={{this.setEconBlock}}/>
+
+<div align="right">
+<button name="econblock" {{action (mut this.setEconBlock) true}} class="btn btn-secondary">Econ Block</button>
+{{#if this.model.limits.investors}}
+<button name="clearlimits" {{action 'EconClearAll'}} class="btn btn-secondary">Clear All Limits</button>
+{{/if}}
+</div>
+
+{{outlet}}

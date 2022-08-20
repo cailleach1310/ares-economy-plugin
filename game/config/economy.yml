@@ -1,0 +1,75 @@
+---
+economy:
+  check_econ_block_cron:
+    hour:
+    - 10
+    minute:
+    - 15
+  currency: ducats
+  econ_blocked_fields:
+  - field: name
+    width: 28
+    title: Name
+  - field: block_expiry
+    width: 28
+    title: Block Expiry
+  - field: last_on
+    width: 19
+    title: Last on
+  econ_limit_fields:
+  - field: name
+    width: 18
+    title: Name
+  - field: group
+    value: house
+    width: 18
+    title: House
+  - field: group
+    value: position
+    width: 18
+    title: Position
+  - field: limit
+    width: 18
+    title: Economy Limit
+  factors:
+    Courtesan: 1
+    Merchant: 2
+    Lord: 3
+    Lady: 3
+    Baron: 4
+    Baroness: 4
+    Count: 5
+    Countess: 5
+    Viscount: 6
+    Viscountess: 6
+    Prince: 7
+    Princess: 7
+    King: 10
+    Queen: 10
+  modifiers:
+  - name: Resources
+    type: advantage
+    effect: 1
+  - name: Thysia
+    type: country
+    effect: -1
+  shortcuts: {}
+  web_blocked_fields:
+  - field: block_info
+    width: 40
+    title: Details
+  - field: block_expiry
+    width: 17
+    title: Block Expiry
+  web_limit_fields:
+  - field: group
+    value: house
+    width: 17
+    title: House
+  - field: group
+    value: position
+    width: 17
+    title: Position
+  - field: limit
+    width: 17
+    title: Economy Limit

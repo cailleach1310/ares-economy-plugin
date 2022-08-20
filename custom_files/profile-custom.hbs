@@ -1,0 +1,26 @@
+  <div id="pentraits" class="tab-pane fade">
+    <center>
+       <div class="col col-md-9 col-sm-12">
+          <div class="row pen-traits-box">
+            <PenTraitsTable @title="Traits" @list={{char.custom.pen_traits}} @max={{20}} />
+          </div>
+       </div>
+    </center>
+ </div>
+
+  <div id="economy" class="tab-pane fade">
+        {{#if char.custom.limit}}
+           <div class="row">
+               <div class="col col-md-6 col-sm-12">
+                   <EconChart @list={{char.custom.econ_chart}} />
+               </div>
+                <div class="col col-md-6 col-sm-12">
+                   <EconStats @limit={{char.custom.limit}} @info={{char.custom.block_info}} @expiry={{char.custom.block_expiry}} @modifiers={{char.custom.modifiers}} @name={{char.name}} />
+                </div>
+               {{#if char.custom.econ_chart}}
+               {{else}}
+                    <div align=left> <button name="econset" {{action 'econSet' char.name}} class="btn btn-secondary">Set your limit</button></div>
+               {{/if}}
+           </div>
+        {{/if}}
+  </div>

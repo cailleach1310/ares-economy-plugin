@@ -1,0 +1,20 @@
+<div class="char-ability-title">Economy Limit</div>
+   <div class="row econ-line-simple">
+      {{{ansi-format text=this.limit}}}
+     </div>
+<div class="char-ability-title">Economy Modifiers</div>
+   <EconListModifiers @list={{this.modifiers}} />
+<div class="char-ability-title">Economy Block</div>
+   {{#if this.info}}
+     <div class="row econ-line-simple">
+       {{{ansi-format text=this.info}}}
+     </div>
+     <div class="row econ-line-simple">
+       {{{ansi-format text=this.expiry}}}
+     </div>
+    {{else}} 
+    <div class="row econ-line-simple">
+       <i>You aren't currently blocked from economic ventures.</i>
+    </div>
+   {{/if}}
+

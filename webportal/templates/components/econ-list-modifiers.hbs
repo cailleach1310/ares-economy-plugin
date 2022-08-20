@@ -1,0 +1,14 @@
+    {{#each this.list as |entry| }}
+        <div class="row econ-line">
+          <div class="col col-xs-12 col-sm-4">
+            {{entry.name}}
+          </div>
+          <div class="col col-xs-12 col-sm-4">
+            ({{entry.type}})
+          </div>
+           <div class="col col-xs-12 col-sm-4">
+            {{entry.value}}
+            </div>
+        </div>
+        <div class="clearfix"/>
+    {{/each}}

@@ -1,0 +1,20 @@
+<div class="char-ability-title">Economy Chart</div>
+   {{#if this.list}}
+      {{#each this.list as |t| }}
+        <div class="row econ-line">
+          <div class="col col-xs-12 col-sm-4" align="right">
+            {{t.amount}}
+          </div>
+          <div class="col col-xs-12 col-sm-2" align="center">
+            --->
+          </div>
+           <div class="col col-xs-12 col-sm-6">
+            econ/block for {{t.days}} days
+           </div>
+        </div>
+      {{/each}}
+   {{else}}
+    <div class="row econ-line-simple">
+       <i>Your econ chart is currently empty because you haven't got an economy limit set.</i>
+    </div>
+   {{/if}}

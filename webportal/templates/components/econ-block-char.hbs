@@ -1,0 +1,10 @@
+<BsModalSimple @title="Set Econ Block" @closeTitle="Cancel" @submitTitle="Set Block" @size={{null}} @fade={{true}} @open={{this.setEconBlock}} @onSubmit={{action "EconBlock" this.blockName this.blockReason this.blockDays}} @onHide={{action (mut this.setEconBlock) false}}>
+
+    <p>Character Name:</p>
+    <Input @type="text" size={{25}} id="blockName" @enter={{action "EconBlock"}} @value={{this.blockName}} />
+    <p>Number of days:</p>
+    <Input @type="integer" size={{25}} id="blockDays" @enter={{action "EconBlock"}} @value={{this.blockDays}} />
+    <p>Reason:</p>
+    <MarkdownEditor @text={{this.blockReason}} />
+
+ </BsModalSimple>
