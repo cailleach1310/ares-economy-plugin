@@ -23,14 +23,14 @@ module AresMUSH
 
      def self.get_factor_attr(char)
         factor_group = Global.read_config("economy","factor_group")
-        if (factor_group)
-           pos = char.groups[factor_group]
-           if !pos
+        if ( factor_group == {} )
+           pos = char.ranks_rank
+           if (!pos)
                return { error: t('economy.config_error') }
            end
         else
-           pos = char.ranks_rank
-           if !pos
+           pos = char.groups[factor_group]
+           if (!pos)
                return { error: t('economy.config_error') }
            end
         end
