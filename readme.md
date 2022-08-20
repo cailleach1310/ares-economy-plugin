@@ -39,6 +39,9 @@ Update with: custom_files/profile-custom.hbs
 #### ares-webportal/app/templates/components/profile-custom-tabs.hbs
 Update with: custom_files/profile-custom-tabs.hbs
 
+#### ares-webportal/app/components/profile-custom.js
+Update with: custom_files/profile-custom.js
+
 ## Configuration
 
 ### Other plugins
