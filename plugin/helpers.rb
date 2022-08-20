@@ -21,16 +21,31 @@ module AresMUSH
        return mod
      end
 
+     def self.get_factor_attr(char)
+        factor_group = Global.read_config("economy","factor_group")
+        if (factor_group)
+           pos = char.groups[factor_group]
+           if !pos
+               return { error: t('economy.config_error') }
+           end
+        else
+           pos = char.ranks_rank
+           if !pos
+               return { error: t('economy.config_error') }
+           end
+        end
+        return pos
+     end
+
      def self.calc_limit(char)
         limit = 0
         random = rand(1..10)
-        pos = char.groups["position"]
-        factor = Economy.factors[pos]
+        factor_attr = Economy.get_factor_attr(char)
+        factor = Economy.factors[factor_attr]
         modifiers = calculate_modifiers(char)
         if (factor)
            limit = ((random + 15) * (factor + modifiers) + 70) * 100
         end
-#        return "random: #{random}\npos: #{pos}\nfactor: #{factor}\nmodifiers: #{modifiers}\n\nlimit: #{limit}"
         return limit
      end
 

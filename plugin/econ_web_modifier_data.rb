@@ -16,7 +16,7 @@ module AresMUSH
 
       def get_modifier_list(char)
         mod_list = []
-        pos = char.groups["position"]
+        pos = Economy.get_factor_attr(char)
         factor = Economy.factors[pos]
         entry = [pos, "factor", factor] 
         mod_list << entry
