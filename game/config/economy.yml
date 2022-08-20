@@ -51,9 +51,6 @@ economy:
   - name: Resources
     type: advantage
     effect: 1
-  - name: Thysia
-    type: country
-    effect: -1
   shortcuts: {}
   web_blocked_fields:
   - field: block_info
