@@ -125,8 +125,8 @@ module AresMUSH
       when 'name'
         Demographics.name_and_nickname(char)
     
-  #    when 'rank'
-  #      char.ranks_rank
+      when 'rank'
+        char.ranks_rank
    
       when 'group'
         char.group(value)
