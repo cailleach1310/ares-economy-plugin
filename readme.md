@@ -21,7 +21,7 @@ Lyanna @ AresCentral
 ## Installation
 In the game, run: plugin/install https://github.com/cailleach1310/ares-economy-plugin
 
-### Updating Custom Profile and Chargen Files
+### Updating Custom Profile Files
 If you do not have any existing edits to these custom files, you can use the files in the custom_files folder of this repository as-is. If you do, then you may use them as templates to add the lines of code needed for the marque plugin.
 
 #### aresmush/plugins/profile/custom_char_fields.rb
