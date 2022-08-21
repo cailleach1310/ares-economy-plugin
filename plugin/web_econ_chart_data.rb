@@ -2,6 +2,10 @@ module AresMUSH
   module Economy
     class WebEconChartDataBuilder
       def build(char, viewer)
+        if (!viewer)
+          return nil
+        end
+
         is_owner = (viewer && viewer.id == char.id)
         is_admin = viewer.is_admin?
 
