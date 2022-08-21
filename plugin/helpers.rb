@@ -40,13 +40,21 @@ module AresMUSH
      def self.calc_limit(char)
         limit = 0
         random = rand(1..10)
-        factor_attr = Economy.get_factor_attr(char)
-        factor = Economy.factors[factor_attr]
-        modifiers = calculate_modifiers(char)
-        if (factor)
-           limit = ((random + 15) * (factor + modifiers) + 70) * 100
+        factor_attr = Economy.get_factor_attr(char).to_s
+        non_factors=Global.read_config("economy","non_factors").to_s.split
+        if non_factors.include? factor_attr
+           return 0
+        else
+           factor = Economy.factors[factor_attr]
+           if !(factor)
+              factor = 0
+           end
+           modifiers = calculate_modifiers(char)
+           if (factor)
+              limit = ((random + 15) * (factor + modifiers) + 70) * 100
+           end
+           return limit
         end
-        return limit
      end
 
      def self.expired_blocks()
