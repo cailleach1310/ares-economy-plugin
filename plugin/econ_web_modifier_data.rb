@@ -21,28 +21,37 @@ module AresMUSH
       def get_modifier_list(char)
         mod_list = []
         pos = Economy.get_factor_attr(char)
-        factor = Economy.factors[pos]
-        entry = [pos, "factor", factor] 
-        mod_list << entry
-        Economy.modifiers.each do |a|
-          case a["type"]
-          when "advantage"
-             adv = char.fs3_advantages.find(name: a["name"]).first
-             if (adv)
-                effect = a["effect"]
-                mod = effect * adv.rating
-                entry = [a["name"], a["type"], mod]
-                mod_list << entry
+        non_factors=Global.read_config("economy","non_factors").to_s.split
+        if non_factors.include? pos
+           return nil
+        else
+           factor = Economy.factors[pos]
+           if !(factor)
+              factor = 0
+           end
+           entry = [pos, "factor", factor]
+           mod_list << entry
+           Economy.modifiers.each do |a|
+             case a["type"]
+             when "advantage"
+                adv = char.fs3_advantages.find(name: a["name"]).first
+                if (adv)
+                   effect = a["effect"]
+                   mod = effect * adv.rating
+                   entry = [a["name"], a["type"], mod]
+                   mod_list << entry
+                end
+             when "country"
+               if (char.groups["country"] == a["name"])
+                  entry = [a["name"], a["type"], a["effect"]]
+                  mod_list << entry
+               end
              end
-          when "country"
-             if (char.groups["country"] == a["name"])
-                entry = [a["name"], a["type"], a["effect"]]
-                mod_list << entry 
-             end
-          end      
+           end
         end
         mod_list
      end
+
      
      def build_modifier_data(char)
         get_modifier_list(char).map { |n, t, m|
