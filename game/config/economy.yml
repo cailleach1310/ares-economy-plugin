@@ -51,6 +51,7 @@ economy:
   - name: Resources
     type: advantage
     effect: 1
+  non_factors: {}
   shortcuts: {}
   web_blocked_fields:
   - field: block_info
