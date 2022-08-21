@@ -52,9 +52,12 @@ module AresMUSH
         mod_list
      end
 
-     
      def build_modifier_data(char)
-        get_modifier_list(char).map { |n, t, m|
+        modifiers = get_modifier_list(char)
+        if (modifiers == nil)
+           return nil
+        end
+        modifiers.map { |n, t, m|
         {
            name: n,
            type: t,
