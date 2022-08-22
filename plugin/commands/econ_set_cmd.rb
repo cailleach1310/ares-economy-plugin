@@ -20,6 +20,13 @@ module AresMUSH
            return
         end 
 
+        pos = Economy.get_factor_attr(enactor)
+        non_factors = Global.read_config("economy","non_factors").to_s.split
+        if (non_factors.include? pos)
+           client.emit "You are not allowed to set a limit.\n"
+           return
+        end      
+        
         econ_limit = Economy.calc_limit(enactor)
         enactor.update(limit: econ_limit)
         limit = Economy.prettify(econ_limit)   
