@@ -9,16 +9,16 @@ Economy can be handled in many different ways on a game. The approach of this pl
 
 The limit is calculated on the basis of chance, status (as determined through a character attribute, for example 'rank' or a group attribute) and certain modifiers, if such modifiers are defined. Modifiers can be for example an advantage 'Resources', or a country attribute value. 
 
-Players can set their limit once when needed. After the limit is set, it can only be cleared by admin.
+Players can set their limit once when needed. After the limit is set, it can only be reset by admin.
 
 Should a player decide to have their character finally spend a certain amount of money, admin will set an economy block on them, the duration of which is usally based on the economy chart of the player. During this economy block, the character will be unable to spend money on another financial venture. Meaning big financial venture. It is not meant to leave them broke for the time.
 
 ### What this plugin covers
-In game commands for players to set their economy limit, to view the economy limit and to view the economy chart. The webportal character page gets a new 'Economy' tab, where all these things are visible for the player, but not for other players.
-
-In game commands for admin to check current economy limits, economy blocks and also to set an economy block on a player. Webportal-side: The 'Economy' tabs on character pages are visible for admins. There is also an admin page for economy management that shows current economy limits and economy blocks. On this page, an admin can set an economy block on a player and also clear limits on players.
-
-A daily cron job checks current economy blocks on players and clears those that have expired. It sends a mail notification to players and creates a block expiry job for admin.
+* In-game commands for players to set their economy limit, to view the economy limit and to view the economy chart. 
+* The webportal character page gets a new 'Economy' tab, where all these things are visible for the player, but not for other players.
+* In-game commands for admin to check current economy limits, economy blocks and also to set an economy block on a player. 
+* Webportal-side: The 'Economy' tabs on character pages are visible for admins. There is also an admin page for economy management that shows current economy limits and economy blocks. On this page, an admin can set an economy block on a player and also reset limits on players.
+* A daily cron job checks current economy blocks on players and removes those that have expired. It sends a mail notification to players and creates a block expiry job for admin.
 
 ## Screenshots
 
