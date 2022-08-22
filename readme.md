@@ -37,14 +37,11 @@ A daily cron job checks current economy blocks on players and clears those that 
 ## Installation
 In the game, run: plugin/install https://github.com/cailleach1310/ares-economy-plugin
 
-### Updating Custom Profile Files
-If you do not have any existing edits to these custom files, you can use the files in the custom_files folder of this repository as-is. If you do, then you may use them as templates to add the lines of code needed for the marque plugin.
+### Updating Custom Files
+If you do not have any existing edits to these custom files, you can use the files in the custom_files folder of this repository as-is. If you do, then you may use them as templates to add the lines of code needed for the economy plugin.
 
 #### aresmush/plugins/profile/custom_char_fields.rb
 Update with: custom_files/custom_char_fields.rb
-
-### Updating Custom Web Portal Profile Files
-If you don't have any existing edits to these custom files, you can use the files in the custom_files folder of this repository as-is. If you do, then you may use them as templates to add the lines of code needed for the economy plugin.
 
 #### ares-webportal/app/custom-routes.js
 Update with: custom_files/custom-routes.js
