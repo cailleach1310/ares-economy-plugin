@@ -23,8 +23,7 @@ module AresMUSH
          else
              expiry = char.block_expiry
          end
-         return { pen_traits: PenTraits.build_web_char_data(char, viewer),
-                  limit: Website.format_markdown_for_html(limit),
+         return { limit: Website.format_markdown_for_html(limit),
                   block_info: Website.format_markdown_for_html(char.block_info),
                   block_expiry: Website.format_markdown_for_html(expiry),
                   modifiers: Economy.build_web_econ_modifiers(char,viewer),
