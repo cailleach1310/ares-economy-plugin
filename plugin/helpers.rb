@@ -124,9 +124,6 @@ module AresMUSH
         char.update(block_info: nil)
      end
 
-
-# Stuff for economy management on the webportal
-
     def self.general_field(char, field_type, value)
       case field_type
 
@@ -158,7 +155,6 @@ module AresMUSH
         nil
       end
     end
-
 
   end
 end
