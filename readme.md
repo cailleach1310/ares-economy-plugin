@@ -50,6 +50,9 @@ Update with: custom_files/profile-custom.js
 
 ## Configuration
 
+### Adjusting Limit Algorithm
+If you want to adjust the algorithm for determining the limit, you'll need to dig into the code. The function in question is ''Economy.calc_limit(char)'', it can be found in the helpers.rb file in the ''/aresmush/plugins/economy'' directory.
+
 ### Other plugins
 
 #### /aresmush/game/config/website.yml
