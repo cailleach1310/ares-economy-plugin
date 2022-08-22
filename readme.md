@@ -5,18 +5,24 @@ An economy system plugin for AresMUSH.
 Lyanna @ AresCentral
 
 ## Overview
+Economy can be handled in many different ways on a game. The approach of this plugin ensures that new characters are not at a disadvantage to established characters, which would occur, if wealth were acquired through coded monthly income. It is useful for situations like auctions, but also for longer term investments, when you need to determine just how much money your character can spend. 
 
-(tbd)
+The limit is calculated on the basis of chance, status (as determined through a character attribute, for example 'rank' or a group attribute) and certain modifiers, if such modifiers are defined. Modifiers can be for example an advantage 'Resources', or a country attribute value. 
+
+Players can set their limit once when needed. After the limit is set, it can only be cleared by admin.
+
+Should a player decide to have their character finally spend a certain amount of money, admin will set an economy block on them, the duration of which is usally based on the economy chart of the player. During this economy block, the character will be unable to spend money on another financial venture. Meaning big financial venture. It is not meant to leave them broke for the time.
 
 ### What this plugin covers
+In game commands for players to set their economy limit, to view the economy limit and to view the economy chart. The webportal character page gets a new 'Economy' tab, where all these things are visible for the player, but not for other players.
 
+In game commands for admin to check current economy limits, economy blocks and also to set an economy block on a player. Webportal-side: The 'Economy' tabs on character pages are visible for admins. There is also an admin page for economy management that shows current economy limits and economy blocks. On this page, an admin can set an economy block on a player and also clear limits on players.
+
+A daily cron job checks current economy blocks on players and clears those that have expired. It sends a mail notification to players and creates a block expiry job for admin.
 
 ## Screenshots
 
 (tbd)
-
-## Prerequisites
-You need to determine which attribute to tie the factor to. Usually, this could be something like the group 'position' or the attribute 'ranks_rank'. Whatever attribute/group you choose, please make sure to tie each possible value to a factor number, or you could run into errors. Freeform attributes are no good fit for this.
 
 ## Installation
 In the game, run: plugin/install https://github.com/cailleach1310/ares-economy-plugin
@@ -60,7 +66,7 @@ For example:
     (...)
 
 ### economy.yml 
-You don't have to modify the economy.yml for the plugin to work, but you can make adjustments here. The keys in the yaml are explained below.
+After installation, you should check the economy.yml and make adjustments where necessary. The keys in the configuration file are explained below.
 
 #### check_econ_block_cron
 Time for the daily econ block expiry check. If needed, adjust to a time that suits you better.
@@ -82,6 +88,9 @@ This is where factor attribute values are tied to the actual factor numbers.
 
 #### modifiers
 Modifiers can be added here, with fields 'name', 'type', 'effect'. 'Effect' can be positive or negative, usually '1' or '-1'. This is where you'd usually tie in the advantage 'Resources'. Modifiers of type 'advantage' will have their rating multiplied to the effect.
+
+#### non_factors
+If certain factor attribute values are meant to be excluded from economy ventures, list them here. Characters that fall into this category won't have an 'Economy' tab on their webportal character page. Default value for this key is '{}'.
 
 #### shortcuts
 Here is a space where you can define shortcuts for the commands.
