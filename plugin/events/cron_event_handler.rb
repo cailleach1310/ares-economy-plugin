@@ -14,9 +14,9 @@ module AresMUSH
              Economy.unblock_char(c.name)
              message = "Congratulations! Your economy block has expired.\n\nDetails: " + c.block_info + "\n\nExpiry Date: " + c.block_expiry
              Mail.send_mail([c.name], "Economy Block Expiry", message, nil)
-             summary = summary + "\n#{c.name}:\n\nDetails: #{c.block_info}\n\nExpiry Date: #{c.block_expiry}\n" 
+             summary = summary + "\n\n#{c.name}:\nDetails: #{c.block_info}\nExpiry Date: #{c.block_expiry}\n"
           end
-          if (expired)
+          if !(expired.empty?)
              Jobs.create_job("MISC",
              "Economy Block Expiry",
              "The following economy blocks have expired: #{summary}",
