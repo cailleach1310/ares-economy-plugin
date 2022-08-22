@@ -18,8 +18,8 @@ export default Component.extend({
                 if (response.error) {
                     return;
                 }
-                this.flashMessages.success('Your economy limit has been set! Please reload page to view your economy info.');
-                this.send('reloadModel');
+                this.flashMessages.success('Your economy limit has been set!');
+                this.reloadChar();
             });
        }
    }
