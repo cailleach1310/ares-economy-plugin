@@ -60,9 +60,6 @@ Update with: custom_files/profile-custom.js
 
 ## Configuration
 
-### Adjusting Limit Algorithm
-If you want to adjust the algorithm for determining the limit, you'll need to dig into the code. The function in question is ''Economy.calc_limit(char)'', it can be found in the helpers.rb file in the ''/aresmush/plugins/economy'' directory.
-
 ### Other plugins
 
 #### /aresmush/game/config/website.yml
@@ -113,6 +110,9 @@ Fields that will be listed in the webportal view of the economy management route
 
 #### web_limit_fields
 Fields that will be listed in the webportal view of the economy management route. This will most probably need to be modified. 
+
+### Adjusting Limit Algorithm
+If you want to adjust the algorithm for determining the limit, you'll need to dig into the code. The function in question is **Economy.calc_limit(char)**, it can be found in the helpers.rb file in the /aresmush/plugins/economy directory.
 
 ## Uninstallation
 Removing the plugin requires some code fiddling. See [Uninstalling Plugins](https://www.aresmush.com/tutorials/code/extras.html#uninstalling-plugins).
