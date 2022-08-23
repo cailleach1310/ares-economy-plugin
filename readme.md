@@ -7,7 +7,7 @@ Lyanna @ AresCentral
 ## Overview
 Economy can be handled in many different ways on a game. The approach of this plugin ensures that new characters are not at a disadvantage to established characters, which would occur, if wealth were accumulated through coded monthly income. It is useful for situations like auctions, but also for longer term investments, when you need to determine just how much money your character can spend. 
 
-The limit is calculated on the basis of chance, status (as determined through a character attribute, for example 'rank' or a group attribute) and certain modifiers, if such modifiers are defined. Modifiers can be for example an advantage 'Resources', or a country attribute value. 
+The limit is calculated on the basis of chance, status (as determined through a character attribute, for example 'rank' or a group attribute) and certain modifiers, if such modifiers are defined. Examples for modifiers are an advantage 'Resources', or a country group attribute value. 
 
 Players can set their limit once when needed. After the limit is set, it can only be reset by admin, usually after a decision about a potential investment has been made.
 
