@@ -69,25 +69,22 @@ module AresMUSH
         return list
      end
 
+# nifty formatted limit output through string operations
+
      def self.prettify(amount)
-         string = ""
          if !amount
              return "Not set."
          else
-             thousands = amount / 1000
-             rest = amount % 1000
-             if (thousands > 0)
-                string = string + thousands.to_s + ","
-                if rest < 100
-                   string = string + "0"
-                end
-                if rest < 10
-                   string = string + "0"
-                end
-             end
-             string = string + rest.to_s + " " + Economy.currency
+           rev = amount.to_s.reverse
+           ar = rev.scan(/.{3}/)
+           len_last = amount.to_s.length % 3
+           last = amount.to_s.slice(0,len_last).reverse
+           if (last.length > 0)
+              ar = ar << last
+           end
+           string = ar.join(",").reverse + " " + Economy.currency
         end
-        return string     
+        return string
      end
 
     def self.econ_chart(char)
