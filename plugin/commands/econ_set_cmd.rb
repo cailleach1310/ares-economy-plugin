@@ -30,6 +30,7 @@ module AresMUSH
         econ_limit = Economy.calc_limit(enactor)
         enactor.update(limit: econ_limit)
         limit = Economy.prettify(econ_limit)   
+        Achievements.award_achievement(enactor, "econ_limit")
         client.emit "Your limit has been set to #{limit}.\n"
       end
 
