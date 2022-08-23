@@ -34,6 +34,7 @@ module AresMUSH
         econ_limit = Economy.calc_limit(char)
         if econ_limit
            char.update(limit: econ_limit)
+           Achievements.award_achievement(enactor, "econ_limit")
         end
         {
             name: char.name
