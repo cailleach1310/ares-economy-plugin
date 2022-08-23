@@ -57,6 +57,15 @@ Update with: custom_files/profile-custom.js
 
 ## Configuration
 
+### Custom CSS
+Add the following lines to your *custom_style.scss* file:
+
+    .econ-line {
+      padding: 5px;
+      border-bottom: 1px solid #c0c0c0; }
+    .econ-line-simple {
+      padding: 5px; }
+
 ### Other plugins
 
 #### /aresmush/game/config/website.yml
