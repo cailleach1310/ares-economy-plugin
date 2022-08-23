@@ -12,6 +12,7 @@ module AresMUSH
           summary = ""
           expired.each do |c|
              Economy.unblock_char(c.name)
+             Achievements.award_achievement(c, "econ_complete")
              message = "Congratulations! Your economy block has expired.\n\nDetails: " + c.block_info + "\n\nExpiry Date: " + c.block_expiry
              Mail.send_mail([c.name], "Economy Block Expiry", message, nil)
              summary = summary + "\n\n#{c.name}:\nDetails: #{c.block_info}\nExpiry Date: #{c.block_expiry}\n"
