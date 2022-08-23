@@ -1,5 +1,12 @@
 ---
 economy:
+  achievements:
+    econ_limit:
+      type: economy
+      message: Set an economy limit.
+    econ_complete:
+      type: economy
+      message: Completed a financial transaction successfully.
   check_econ_block_cron:
     hour:
     - 10
