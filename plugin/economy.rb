@@ -11,6 +11,10 @@ module AresMUSH
       File.dirname(__FILE__)
     end
 
+    def self.achievements
+      Global.read_config("economy", "achievements")
+    end
+
     def self.currency
       Global.read_config("economy", "currency")
     end
