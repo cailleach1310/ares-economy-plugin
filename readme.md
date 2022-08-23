@@ -5,22 +5,24 @@ An economy system plugin for AresMUSH.
 Lyanna @ AresCentral
 
 ## Overview
-Economy can be handled in many different ways on a game. The approach of this plugin ensures that new characters are not at a disadvantage to established characters, which would occur, if wealth were acquired through coded monthly income. It is useful for situations like auctions, but also for longer term investments, when you need to determine just how much money your character can spend. 
+Economy can be handled in many different ways on a game. The approach of this plugin ensures that new characters are not at a disadvantage to established characters, which would occur, if wealth were accumulated through coded monthly income. It is useful for situations like auctions, but also for longer term investments, when you need to determine just how much money your character can spend. 
 
 The limit is calculated on the basis of chance, status (as determined through a character attribute, for example 'rank' or a group attribute) and certain modifiers, if such modifiers are defined. Modifiers can be for example an advantage 'Resources', or a country attribute value. 
 
-Players can set their limit once when needed. After the limit is set, it can only be reset by admin.
+Players can set their limit once when needed. After the limit is set, it can only be reset by admin, usually after a decision about a potential investment has been made.
 
 Should a player decide to have their character finally spend a certain amount of money, admin will set an economy block on them, the duration of which is usally based on the economy chart of the player. During this economy block, the character will be unable to spend money on another financial venture. Meaning big financial venture. It is not meant to leave them broke for the time.
 
+This plugin requires only custom code parts to be adjusted. Which means, that future upgrades of your areshmush game shouldn't be an issue usually.
+
 ### What this plugin covers
-* In-game commands for players to set their economy limit, to view the economy limit and to view the economy chart. 
+* Game client commands for players to set their economy limit, to view the economy limit and to view the economy chart. 
 * The webportal character page gets a new 'Economy' tab, where all these things are visible for the player, but not for other players.
 * In-game commands for admin to check current economy limits, economy blocks and also to set an economy block on a player. 
 * The 'Economy' tabs on character pages are visible for admin. 
 * Webportal-side economy management page that shows current economy limits and economy blocks (visible for admin alone). On this page, admin can set an economy block on a player and also reset limits on players.
 * A daily cron job checks current economy blocks on players and removes those that have expired. It sends a mail notification to players and creates a block expiry job for admin.
-* Achievements that are awarded for setting a limit or for completing a financial transaction for the first time.
+* Achievements are awarded for setting a limit or for completing a financial transaction for the first time.
 
 ## Screenshots
 
