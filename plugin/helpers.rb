@@ -69,8 +69,6 @@ module AresMUSH
         return list
      end
 
-# nifty formatted limit output through string operations
-
      def self.prettify(amount)
          if !amount
              return "Not set."
