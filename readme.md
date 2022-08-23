@@ -20,6 +20,7 @@ Should a player decide to have their character finally spend a certain amount of
 * The 'Economy' tabs on character pages are visible for admin. 
 * Webportal-side economy management page that shows current economy limits and economy blocks (visible for admin alone). On this page, admin can set an economy block on a player and also reset limits on players.
 * A daily cron job checks current economy blocks on players and removes those that have expired. It sends a mail notification to players and creates a block expiry job for admin.
+* Achievements that are awarded for setting a limit or for completing a financial transaction for the first time.
 
 ## Screenshots
 
@@ -69,6 +70,15 @@ Add the following lines to your *custom_style.scss* file:
 
 ### Other plugins
 
+#### /aresmush/game/config/achievements
+You can configure achievements of type 'economy' to use a descriptive icon.
+
+    ---
+    achievements:
+      types:
+        economy: fa-sack-dollar
+
+
 #### /aresmush/game/config/website.yml
 Add a route to the top bar menu for the admin management page. This route is limited to admin and coder roles for now. 
 
@@ -84,6 +94,9 @@ For example:
 
 ### economy.yml 
 After installation, you should check the economy.yml and make adjustments where necessary. The keys in the configuration file are explained below.
+
+#### achievements
+There are two achievements defined, *econ_limit* for setting a limit for the first time, and *econ_complete* for completing a transaction (when the daily cron job unblocks a character). 
 
 #### check_econ_block_cron
 Time for the daily econ block expiry check. If needed, adjust to a time that suits you better.
