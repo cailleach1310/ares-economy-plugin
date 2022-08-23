@@ -82,7 +82,7 @@ You can configure achievements of type 'economy' to use a descriptive icon.
 
 
 #### /aresmush/game/config/website.yml
-Add a route to the top bar menu for the admin management page. This route is limited to admin and coder roles for now. 
+Add a route to the top bar menu for the admin management page. Access to this route is limited to admin and coder roles. 
 
 For example:
 
