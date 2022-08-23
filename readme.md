@@ -17,7 +17,8 @@ Should a player decide to have their character finally spend a certain amount of
 * In-game commands for players to set their economy limit, to view the economy limit and to view the economy chart. 
 * The webportal character page gets a new 'Economy' tab, where all these things are visible for the player, but not for other players.
 * In-game commands for admin to check current economy limits, economy blocks and also to set an economy block on a player. 
-* Webportal-side: The 'Economy' tabs on character pages are visible for admins. There is also an admin page for economy management that shows current economy limits and economy blocks. On this page, an admin can set an economy block on a player and also reset limits on players.
+* The 'Economy' tabs on character pages are visible for admin. 
+* Webportal-side economy management page that shows current economy limits and economy blocks (visible for admin alone). On this page, admin can set an economy block on a player and also reset limits on players.
 * A daily cron job checks current economy blocks on players and removes those that have expired. It sends a mail notification to players and creates a block expiry job for admin.
 
 ## Screenshots
@@ -106,7 +107,7 @@ This is where factor attribute values are tied to the actual factor numbers.
 Modifiers can be added here, with fields 'name', 'type', 'effect'. 'Effect' can be positive or negative, usually '1' or '-1'. This is where you'd usually tie in the advantage 'Resources'. Modifiers of type 'advantage' will have their rating multiplied to the effect.
 
 #### non_factors
-If certain factor attribute values are meant to be excluded from economy ventures, list them here. Characters that fall into this category won't have an 'Economy' tab on their webportal character page. Default value for this key is '{}'.
+If certain factor attribute values are meant to be excluded from economy ventures, list them here. Characters that fall into this category won't have an 'Economy' tab on their webportal character page. Neither will they be able to set their limit from the game client. Default value for this key is '{}'.
 
 #### shortcuts
 Here is a space where you can define shortcuts for the commands.
@@ -118,7 +119,7 @@ Fields that will be listed in the webportal view of the economy management route
 Fields that will be listed in the webportal view of the economy management route. This will most probably need to be modified. 
 
 ### Adjusting Limit Algorithm
-If you want to adjust the algorithm for determining the limit, you'll need to dig into the code. The function in question is **Economy.calc_limit(char)**, it can be found in the helpers.rb file in the /aresmush/plugins/economy directory.
+If you want to adjust the algorithm for determining the economy limit, you'll need to dig into the code. The function in question is *Economy.calc_limit(char)*, it can be found in the *helpers.rb* file in the */aresmush/plugins/economy* directory.
 
 ## Uninstallation
 Removing the plugin requires some code fiddling. See [Uninstalling Plugins](https://www.aresmush.com/tutorials/code/extras.html#uninstalling-plugins).
