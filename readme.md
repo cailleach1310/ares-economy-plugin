@@ -13,7 +13,7 @@ Players can set their limit once when needed. After the limit is set, it can onl
 
 Should a player decide to have their character finally spend a certain amount of money, admin will set an economy block on them, the duration of which is usally based on the economy chart of the player. During this economy block, the character will be unable to spend money on another financial venture. Meaning big financial venture. It is not meant to leave them broke for the time.
 
-This plugin requires only custom code parts to be adjusted. Which means, that future upgrades of your areshmush game shouldn't be an issue usually.
+This plugin requires only custom code parts to be adjusted. It has been developed and tested on AresMUSH v0.108 and v0.109.
 
 ### What this plugin covers
 * Game client commands for players to set their economy limit, to view the economy limit and to view the economy chart. 
