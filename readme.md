@@ -70,7 +70,7 @@ Add the following lines to your *custom_style.scss* file:
 
 ### Other plugins
 
-#### /aresmush/game/config/achievements
+#### /aresmush/game/config/achievements.yml
 You can configure achievements of type 'economy' to use a descriptive icon.
 
     ---
