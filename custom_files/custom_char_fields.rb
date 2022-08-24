@@ -52,12 +52,7 @@ module AresMUSH
       # @example
       #    return { goals: Website.format_input_for_html(char.goals) }
       def self.get_fields_for_chargen(char)
-        if PenTraits.not_set?(char)
-          PenTraits.init_traits(char)
-        end
-        return { pen_traits: PenTraits.build_web_char_data(char, char),
-           cg_traits_set: !PenTraits.traits_not_set(char),
-           cg_traits_max_points: Global.read_config("pentraits", "trait_points") }
+        return {}
       end
       
       # Saves fields from profile editing.
