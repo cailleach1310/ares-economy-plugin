@@ -5,7 +5,7 @@ An economy system plugin for AresMUSH.
 Lyanna @ AresCentral
 
 ## Overview
-Economy can be handled in many different ways on a game. The approach of this plugin ensures that new characters are not at a disadvantage to established characters, which would occur, if wealth were accumulated through coded monthly income. It is useful for situations like auctions, but also for longer term investments, when you need to determine just how much money your character can spend. 
+Economy can be handled in many different ways on a game. The approach of this plugin ensures that new characters are not at a great disadvantage to established characters, as wealth is not accumulated through coded monthly income. It is useful for situations like auctions, but also for longer term investments, when you need to determine just how much money your character can spend. 
 
 The limit is calculated on the basis of chance, status (as determined through a character attribute, for example 'rank' or a group attribute) and certain modifiers, if such modifiers are defined. Modifiers can be fs3 advantages, fs3 action skills or group attributes. 
 
