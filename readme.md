@@ -11,9 +11,9 @@ The limit is calculated on the basis of chance, status (as determined through a 
 
 Players can set their limit once when needed. After the limit is set, it can only be reset by admin, usually after a decision about a potential investment has been made.
 
-Should a player decide to have their character finally spend a certain amount of money, admin will set an economy block on them, the duration of which is usally based on the economy chart of the player. During this economy block, the character will be unable to spend money on another financial venture. Meaning big financial venture. It is not meant to leave them broke for the time.
+Should a player decide to have their character finally spend a certain amount of money, admin will set an economy block on them, the duration of which is usally based on the economy chart of the player. During this economy block, the character will be unable to spend money on another financial venture. 
 
-This plugin requires only custom code parts to be adjusted. It has been developed and tested on AresMUSH v0.108 and v0.109.
+This plugin requires only custom code parts to be adjusted. It has been developed and tested with AresMUSH v0.108 and v0.109.
 
 ### What this plugin covers
 * Game client commands for players to set their economy limit, to view the economy limit and to view the economy chart. 
@@ -136,7 +136,7 @@ Fields that will be listed in the webportal view of the economy management route
 ## Code Tinkering
 
 ### Adjusting Limit Algorithm
-If you want to adjust the algorithm for determining the economy limit, you'll need to dig into the code. The function in question is *Economy.calc_limit(char)*, it can be found in the *helpers.rb* file in the */aresmush/plugins/economy* directory. If you make changes here, make sure to adjust the economy help file, *\aresmush\plugins\economy\help\en\economy.md*, as well.
+If you want to adjust the algorithm for determining the economy limit, you'll need to change the code. The function in question is *Economy.calc_limit(char)*, it can be found in the *helpers.rb* file in the */aresmush/plugins/economy* directory. If you make changes here, make sure to adjust the economy help file, *\aresmush\plugins\economy\help\en\economy.md*, as well.
 
 ### Adjusting Modifier Handling
 As is, modifiers will have the following effects: fs3 advantages grant a modifier of (effect * rating), fs3 action skills grant a modifier of (effect * rating / 2). Special group modifier "country" simply returns the effect. If you want to change or add modifiers and their handling, you'd have to look into the functions *Economy.calculate_modifiers(char)*, located in *\aresmush\plugins\economy\helpers.rb*, and *get_modifier_list(char)*, (located in *\aresmush\plugins\economy\econ_web_modifier_data.rb*. 
