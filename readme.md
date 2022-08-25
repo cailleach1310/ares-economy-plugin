@@ -136,10 +136,10 @@ Fields that will be listed in the webportal view of the economy management route
 ## Code Tinkering
 
 ### Adjusting Limit Algorithm
-If you want to adjust the algorithm for determining the economy limit, you'll need to dig into the code. The function in question is *Economy.calc_limit(char)*, it can be found in the *helpers.rb* file in the */aresmush/plugins/economy* directory. If you make changes here, make sure to adjust the economy help file, *\aresmush\plugins\economy\help\en\economy.md*.
+If you want to adjust the algorithm for determining the economy limit, you'll need to dig into the code. The function in question is *Economy.calc_limit(char)*, it can be found in the *helpers.rb* file in the */aresmush/plugins/economy* directory. If you make changes here, make sure to adjust the economy help file, *\aresmush\plugins\economy\help\en\economy.md*, as well.
 
 ### Adjusting Modifier Handling
-As is, modifiers will have the following effects: fs3 advantages grant a modifier of (effect * rating), fs3 action skills grant a modifier of (effect * rating / 2). Special group modifier "country" simply returns the effect. If you want to change or add modifiers and their handling, you'd have to look into the functions *Economy.calculate_modifiers(char)* (located in *\aresmush\plugins\economy\helpers.rb*) and *get_modifier_list(char)* (located in *\aresmush\plugins\economy\econ_web_modifier_data.rb*). 
+As is, modifiers will have the following effects: fs3 advantages grant a modifier of (effect * rating), fs3 action skills grant a modifier of (effect * rating / 2). Special group modifier "country" simply returns the effect. If you want to change or add modifiers and their handling, you'd have to look into the functions *Economy.calculate_modifiers(char)*, located in *\aresmush\plugins\economy\helpers.rb*, and *get_modifier_list(char)*, (located in *\aresmush\plugins\economy\econ_web_modifier_data.rb*. 
 
 ## Uninstallation
 Removing the plugin requires some code fiddling. See [Uninstalling Plugins](https://www.aresmush.com/tutorials/code/extras.html#uninstalling-plugins).
