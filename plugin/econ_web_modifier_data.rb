@@ -41,6 +41,14 @@ module AresMUSH
                    entry = [a["name"], a["type"], mod]
                    mod_list << entry
                 end
+             when "actionskill"
+                skill = char.fs3_action_skills.find(name: a["name"]).first
+                if (skill)
+                   effect = a["effect"]
+                   mod = effect * skill.rating / 2
+                   entry = [a["name"], a["type"], mod]
+                   mod_list << entry
+                end
              when "country"
                if (char.groups["country"] == a["name"])
                   entry = [a["name"], a["type"], a["effect"]]
