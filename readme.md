@@ -7,7 +7,7 @@ Lyanna @ AresCentral
 ## Overview
 Economy can be handled in many different ways on a game. The approach of this plugin ensures that new characters are not at a disadvantage to established characters, which would occur, if wealth were accumulated through coded monthly income. It is useful for situations like auctions, but also for longer term investments, when you need to determine just how much money your character can spend. 
 
-The limit is calculated on the basis of chance, status (as determined through a character attribute, for example 'rank' or a group attribute) and certain modifiers, if such modifiers are defined. Examples for modifiers are an advantage 'Resources', or a country group attribute value. 
+The limit is calculated on the basis of chance, status (as determined through a character attribute, for example 'rank' or a group attribute) and certain modifiers, if such modifiers are defined. Modifiers can be fs3 advantages, fs3 action skills or group attributes. 
 
 Players can set their limit once when needed. After the limit is set, it can only be reset by admin, usually after a decision about a potential investment has been made.
 
@@ -119,7 +119,7 @@ Add here the name of the group that will determine the factor, for example 'posi
 This is where factor attribute values are tied to the actual factor numbers.
 
 #### modifiers
-Modifiers can be added here, with fields 'name', 'type', 'effect'. 'Effect' can be positive or negative, usually '1' or '-1'. This is where you'd usually tie in the advantage 'Resources'. Modifiers of type 'advantage' will have their rating multiplied to the effect.
+Modifiers can be added here, with fields 'name', 'type', 'effect'. 'Effect' can be positive or negative, usually '1' or '-1'. This is where you'd usually tie in the advantage 'Resources'. Modifiers of type 'advantage' or 'actionskill' will have their rating multiplied to the effect.
 
 #### non_factors
 If certain factor attribute values are meant to be excluded from economy ventures, list them here. Characters that fall into this category won't have an 'Economy' tab on their webportal character page, nor will they be able to set their limit from the game client. Default value for this key is '{}'.
@@ -133,8 +133,13 @@ Fields that will be listed in the webportal view of the economy management route
 #### web_limit_fields
 Fields that will be listed in the webportal view of the economy management route. This will most probably need to be modified. 
 
+## Code Tinkering
+
 ### Adjusting Limit Algorithm
 If you want to adjust the algorithm for determining the economy limit, you'll need to dig into the code. The function in question is *Economy.calc_limit(char)*, it can be found in the *helpers.rb* file in the */aresmush/plugins/economy* directory.
+
+### Adjusting Modifier Handling
+As is, modifiers will have the following effects: fs3 advantages grant a modifier of (effect * rating), fs3 action skills grant a modifier of (effect * rating / 2). Special group modifier "country" simply returns the effect. If you want to change or add modifiers and their handling, you'd have to look into the functions *Economy.calculate_modifiers(char)* (located in *helpers.rb*) and *get_modifier_list(char)* (located in *\aresmush\plugins\economy\econ_web_modifier_data.rb*). 
 
 ## Uninstallation
 Removing the plugin requires some code fiddling. See [Uninstalling Plugins](https://www.aresmush.com/tutorials/code/extras.html#uninstalling-plugins).
