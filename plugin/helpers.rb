@@ -11,6 +11,12 @@ module AresMUSH
              if (adv)
                 mod = mod + effect * adv.rating
              end
+          when "actionskill"
+             effect = a["effect"]
+             skill = char.fs3_action_skills.find(name: a["name"]).first
+             if (skill)
+                mod = mod + effect * skill.rating / 2
+             end
           when "country"
              if (char.groups["country"] == a["name"])
                 effect = a["effect"]
