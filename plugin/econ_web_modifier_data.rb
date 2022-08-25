@@ -46,8 +46,10 @@ module AresMUSH
                 if (skill)
                    effect = a["effect"]
                    mod = effect * skill.rating / 2
-                   entry = [a["name"], a["type"], mod]
-                   mod_list << entry
+                   if (mod != 0)
+                      entry = [a["name"], a["type"], mod]
+                      mod_list << entry
+                   end
                 end
              when "country"
                if (char.groups["country"] == a["name"])
