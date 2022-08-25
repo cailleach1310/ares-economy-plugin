@@ -3,7 +3,7 @@ en:
   economy:
 
         # Success
-        econ_block: "%{name} has been blocked from economic ventures for %{days} days. Reason: %{reason}"
+        econ_block: "%{name} has been blocked from financial ventures for %{days} days. Reason: %{reason}"
 
         # Error
         econ_blocked: "The economy block is still in effect."
