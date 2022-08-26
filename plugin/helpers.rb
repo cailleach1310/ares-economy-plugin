@@ -17,11 +17,14 @@ module AresMUSH
              if (skill)
                 mod = mod + effect * skill.rating / 2
              end
-          when "country"
-             if (char.groups["country"] == a["name"])
-                effect = a["effect"]
-                mod = mod + effect
-             end
+          else
+            type = a["type"]
+            if Demographics.get_group(type) 
+               if (char.groups[type] == a["name"])
+                  effect = a["effect"]
+                  mod = mod + effect
+               end
+            end
           end 
        end
        return mod
@@ -59,6 +62,7 @@ module AresMUSH
            if (factor)
               limit = ((random + 15) * (factor + modifiers) + 70) * 100
            end
+           Global.logger.info t('economy.calc_details', :factor => factor, :modifier => modifiers, :random => random)
            return limit
         end
      end
