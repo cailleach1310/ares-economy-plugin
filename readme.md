@@ -119,7 +119,7 @@ Add here the name of the group that will determine the factor, for example 'posi
 This is where factor attribute values are tied to the actual factor numbers.
 
 #### modifiers
-Modifiers can be added here, with fields 'name', 'type', 'effect'. 'Effect' can be positive or negative, usually '1' or '-1'. This is where you'd usually tie in the advantage 'Resources'. Modifiers of type 'advantage' or 'actionskill' will have their rating multiplied to the effect.
+Modifiers can be added here, with fields 'name', 'type', 'effect'. 'Effect' can be positive or negative, usually '1' or '-1'. Valid values for 'type' are 'advantage', 'actionskill' and any group attribute of your game, for example 'country' or 'house'. This is where you'd usually tie in the advantage 'Resources'. Modifiers of type 'advantage' or 'actionskill' will have their rating multiplied to the effect.
 
 #### non_factors
 If certain factor attribute values are meant to be excluded from economy ventures, list them here. Characters that fall into this category won't have an 'Economy' tab on their webportal character page, nor will they be able to set their limit from the game client. Default value for this key is '{}'.
