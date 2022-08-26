@@ -51,10 +51,13 @@ module AresMUSH
                       mod_list << entry
                    end
                 end
-             when "country"
-               if (char.groups["country"] == a["name"])
-                  entry = [a["name"], a["type"], a["effect"]]
-                  mod_list << entry
+             else
+               type = a["type"]
+               if Demographics.get_group(type) 
+                  if (char.groups[type] == a["name"])
+                     entry = [a["name"], a["type"], a["effect"]]
+                     mod_list << entry
+                  end
                end
              end
            end
