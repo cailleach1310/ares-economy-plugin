@@ -8,3 +8,6 @@ en:
         # Error
         econ_blocked: "The economy block is still in effect."
         limit_set: "Your limit is already set!"
+
+        # Degug
+        calc_details: "Limit calculated with the following parameters: %{factor} (factor), %{modifier} (overall modifier) and %{random} (random number)."
