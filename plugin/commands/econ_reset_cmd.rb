@@ -23,9 +23,10 @@ module AresMUSH
         ClassTargetFinder.with_a_character(self.name, client, enactor) do |model|        
           if (model)
              model.update(limit: "0")
-             client.emit "#{model.name}'s limit has been reset.\n"
+             client.emit_success "#{model.name}'s limit has been reset.\n"
+             Global.logger.info "#{model.name}'s econ limit has been reset (triggered by #{enactor.name})."
           else
-             client.emit "Character #{self.name} not found.\n"
+             client.emit_failure "Character #{self.name} not found.\n"
           end
         end
       end

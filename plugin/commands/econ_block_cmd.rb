@@ -25,7 +25,8 @@ module AresMUSH
             return nil
           else 
             Economy.block_char(model.name, self.days, self.reason)
-            client.emit_success "#{model.name} has been blocked from economic ventures."
+            client.emit_success "#{model.name} has been blocked from financial ventures."
+            Global.logger.info "#{model.name} is blocked from financial ventures for #{self.days} days, reason: #{self.reason} (triggered by #{enactor.name})."
             return true
           end
         end
