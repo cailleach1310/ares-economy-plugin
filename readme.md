@@ -23,6 +23,7 @@ This plugin requires only custom code parts to be adjusted. It has been develope
 * Webportal-side economy management page that shows current economy limits and economy blocks (visible for admin alone). On this page, admin can set an economy block on a player and also reset limits on players.
 * A daily cron job checks current economy blocks on players and removes those that have expired. It sends a mail notification to players and creates a block expiry job for admin.
 * Achievements are awarded for setting a limit or for completing a financial transaction for the first time.
+* For transparency's sake, a special route to show the configured factors and modifiers, similar to the system pages that show groups and fs3skills.
 
 ## Screenshots
 
@@ -93,6 +94,18 @@ For example:
         - title: Economy Management
           route: econ-management
     (...)
+
+Add a route to the top bar menu under 'System' for the configured factors and modifiers.
+
+      top_navbar:
+    (...)
+    - title: System
+      menu:
+    (...)
+        - title: Economy Factors
+          route: factors
+    (...)
+
 
 ### economy.yml 
 After installation, you should check the economy.yml and make adjustments where necessary. The keys in the configuration file are explained below.
