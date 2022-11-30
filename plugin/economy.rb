@@ -31,6 +31,10 @@ module AresMUSH
       Global.read_config("economy", "shortcuts")
     end
 
+    def self.non_factors
+      Global.read_config("economy", "non_factors")
+    end
+
     def self.get_cmd_handler(client, cmd, enactor)      
       case cmd.root
       when "econ"
@@ -78,6 +82,8 @@ module AresMUSH
            return EconResetRequestHandler
          when "econClearAll"
            return EconClearAllRequestHandler
+         when "infoFactors"
+           return FactorsRequestHandler
        end
     end
 
