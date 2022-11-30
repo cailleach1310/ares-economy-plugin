@@ -1,0 +1,53 @@
+{{page-title 'Economy Factors'}}
+<h1>Economy Factors</h1>
+
+{{#each this.model.factors as |rgroup| }}
+<h2>{{rgroup.faction}}</h2>
+
+<table class="table table-striped">
+
+<thead>
+{{#if (eq this.model.factor_group "Rank")}}
+    <th>Rank</th>
+{{else}}
+    <th>{{this.model.factor_group}}</th>
+{{/if}}
+    <th>Factor</th>
+</thead>
+
+<tbody>
+{{#each rgroup.factors as |factor| }}
+{{#if factor.value}}
+<tr>
+    <td>{{factor.profession}}</td>
+    <td>{{factor.value}}</td>
+</tr>
+{{/if}}
+{{/each}}
+</tbody>
+</table>
+{{/each}}
+
+<h2>Modifiers</h2>
+
+<table class="table table-striped">
+
+<thead>
+    <th>Modifier</th>
+    <th>Type</th>
+    <th>Effect</th>
+</thead>
+
+<tbody>
+{{#each this.model.modifiers as |modifier| }}
+<tr>
+    <td>{{modifier.name}}</td>
+    <td>{{modifier.type}}</td>
+    <td>{{modifier.effect}}</td>
+</tr>
+{{/each}}
+</tbody>
+</table>
+
+
+{{outlet}}
