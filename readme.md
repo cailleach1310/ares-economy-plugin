@@ -13,7 +13,7 @@ Players can set their limit once when needed. After the limit is set, it can onl
 
 Should a player decide to have their character finally spend a certain amount of money, admin will set an economy block on them, the duration of which is usally based on the economy chart of the player. During this economy block, the character will be unable to spend money on another financial venture. 
 
-This plugin requires only custom code parts to be adjusted. It has been developed and tested with AresMUSH v0.108 and v0.109.
+This plugin requires only custom code parts to be adjusted. It has been developed and tested with AresMUSH versions v0.108 - v1.0.2.
 
 ### What this plugin covers
 * Game client commands for players to set their economy limit, to view the economy limit and to view the economy chart. 
@@ -23,7 +23,7 @@ This plugin requires only custom code parts to be adjusted. It has been develope
 * Webportal-side economy management page that shows current economy limits and economy blocks (visible for admin alone). On this page, admin can set an economy block on a player and also reset limits on players.
 * A daily cron job checks current economy blocks on players and removes those that have expired. It sends a mail notification to players and creates a block expiry job for admin.
 * Achievements are awarded for setting a limit or for completing a financial transaction for the first time.
-* For transparency's sake, a special route to show the configured factors and modifiers, similar to the system pages that show groups and fs3skills.
+* A factors route for the website to show the configured factors and modifiers, similar to the system pages that show groups and fs3skills.
 
 ## Screenshots
 
