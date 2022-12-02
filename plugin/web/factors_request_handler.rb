@@ -8,7 +8,7 @@ module AresMUSH
           factor_group = "Rank"
            rgroup = Demographics.get_group(Ranks.rank_group)["values"].keys.map { |t| t.titlecase }
            rgroup.each do |g|
-              entry = { faction: g, factors: list_factors(g) }
+              entry = { faction: g + " Factors", factors: list_factors(g) }
               if (check_factors(g)) then factors << entry end
            end
         else
