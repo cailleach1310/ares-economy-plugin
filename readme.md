@@ -144,7 +144,7 @@ Modifiers can be added here, with fields 'name', 'type', 'effect'. 'Effect' can 
 If certain factor attribute values are meant to be excluded from economy ventures, list them here. Characters that fall into this category won't have an 'Economy' tab on their webportal character page, nor will they be able to set their limit from the game client. Default value for this key is '{}'.
 
 #### permissions
-Two permissions have been defined here, 'view_house_econ' and 'manage_house_econ'. These permissions need to be associated with roles to be of use. For instance, you could create a role 'head_of_house' and add these two permissions to it, and also a role 'house_member' that onlx has the permission 'view_house_econ'.
+Two permissions have been defined here, 'view_house_econ' and 'manage_house_econ'. These permissions need to be associated with roles to be of use. For instance, you could create a role 'head_of_house' and add these two permissions to it, and also a role 'house_member' with just the permission 'view_house_econ'.
 
 #### shortcuts
 Here is a space where you can define shortcuts for the commands.
