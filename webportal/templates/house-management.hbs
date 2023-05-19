@@ -1,0 +1,23 @@
+{{page-title 'House Economy Management'}}
+<h1> House Management</h1>
+<center>
+       <div class="col col-md-4 col-sm-6">
+<table class="table table-striped">
+<br><br>
+<tbody>
+{{#each this.model.houses as |h|}}
+  <tr>
+   <td>
+   <center><LinkTo @route="house-overview" @model={{h}}>{{h}}</LinkTo></center>
+    </td>
+  </tr>
+{{/each}}
+</tbody>
+</table>
+</div>
+
+<br><br>
+This is an overview of all houses in play. To view the economy and renown details of a particular house, click on the respective house link.
+</center>
+
+{{outlet}}

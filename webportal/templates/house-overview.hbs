@@ -1,0 +1,77 @@
+{{page-title "econ-house/Deveraux"}}
+<h1>House {{this.model.house}}</h1>
+
+<h2>Economy</h2>
+<div class="table-responsive">
+
+<table class="table table-striped">
+  <thead>
+      <th></th>
+      {{#each this.model.people.titles as |title|}}
+      <th>{{title}}</th>
+      {{/each}}
+  </thead>
+  
+  <tbody>
+    {{#each this.model.people.people as |char| }}
+    <tr>
+      {{#each-in char as |field value| }}
+        <td>
+          {{#if (eq field 'char')}}
+            <CharIconInline @char={{value}} />
+          {{else}}
+             {{#if (eq value 'set limit')}}
+                 <button name="SetEconomyLimit" {{action 'EconSet' char.char.name}} class="btn btn-secondary">Set Economy Limit</button>
+             {{else}}
+                {{value}}
+             {{/if}} 
+          {{/if}}
+        </td>
+      {{/each-in}}
+    </tr>
+    {{/each}}
+  </tbody>
+
+</table>
+
+</div>
+
+<p>Economy Total: {{this.model.people.total}}</p> 
+
+{{#if this.model.renown.people}}
+<h2>{{this.model.renown.title}}</h2>
+
+<div class="table-responsive">
+
+<table class="table table-striped">
+  <thead>
+      <th></th>
+      {{#each this.model.renown.titles as |title|}}
+      <th>{{title}}</th>
+      {{/each}}
+  </thead>
+  
+  <tbody>
+    {{#each this.model.renown.people as |char| }}
+    <tr>
+      {{#each-in char as |field value| }}
+        <td>
+          {{#if (eq field 'char')}}
+            <CharIconInline @char={{value}} />
+          {{else}} 
+            {{value}}
+          {{/if}}
+        </td>
+      {{/each-in}}
+    </tr>
+    {{/each}}
+  </tbody>
+
+</table>
+
+</div>
+
+<p>{{this.model.renown.title}} Total: {{this.model.renown.renown}}</p> 
+{{/if}}
+ 
+{{outlet}}

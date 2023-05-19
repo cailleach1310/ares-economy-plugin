@@ -55,7 +55,9 @@ module AresMUSH
           return EconBlockedCmd
         when "unblock"
           return EconUnblockCmd
-        end
+        when "house"
+          return EconHouseCmd
+         end
       end
     end
 
@@ -84,6 +86,10 @@ module AresMUSH
            return EconClearAllRequestHandler
          when "infoFactors"
            return FactorsRequestHandler
+         when "econHouse"
+           return EconHouseRequestHandler
+         when "econHouses"
+           return EconHousesRequestHandler
        end
     end
 
