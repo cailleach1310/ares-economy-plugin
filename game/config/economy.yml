@@ -59,6 +59,9 @@ economy:
     type: advantage
     effect: 1
   non_factors: {}
+  permissions:
+    view_house_econ: Allows viewing the house economy route.
+    manage_house_econ: Allows setting econ on house NPCs.
   shortcuts: {}
   web_blocked_fields:
   - field: block_info
