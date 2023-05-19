@@ -58,6 +58,9 @@ economy:
   - name: Resources
     type: advantage
     effect: 1
+  - name: Renown
+    type: renown
+    effect: 1
   non_factors: {}
   permissions:
     view_house_econ: Allows viewing the house economy route.
