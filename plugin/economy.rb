@@ -90,6 +90,10 @@ module AresMUSH
            return EconHouseRequestHandler
          when "econHouses"
            return EconHousesRequestHandler
+         when "renownOrg"
+            if !Manage.is_extra_installed?("renown")
+              return EconRenownRequestHandler
+            end
        end
     end
 
