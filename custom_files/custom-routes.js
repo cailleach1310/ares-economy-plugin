@@ -4,4 +4,6 @@ export default function setupCustomRoutes(router) {
   // router.route('yourroute');
  router.route('econ-management');
  router.route('factors');
+ router.route('house-overview', { path: '/house-overview/:house' });
+ router.route('house-management');  
 }
