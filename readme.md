@@ -13,7 +13,7 @@ Players can set their limit once when needed. After the limit is set, it can onl
 
 Should a player decide to have their character finally spend a certain amount of money, admin will set an economy block on them, the duration of which is usally based on the economy chart of the player. During this economy block, the character will be unable to spend money on another financial venture. 
 
-This plugin requires only custom code parts to be adjusted. It has been developed and tested with AresMUSH versions v0.108 - v1.0.2.
+This plugin requires only custom code parts to be adjusted. It has been developed and tested with AresMUSH versions v0.108 - v1.0.5.
 
 ### What this plugin covers
 * Game client commands for players to set their economy limit, to view the economy limit and to view the economy chart. 
@@ -24,6 +24,10 @@ This plugin requires only custom code parts to be adjusted. It has been develope
 * A daily cron job checks current economy blocks on players and removes those that have expired. It sends a mail notification to players and creates a block expiry job for admin.
 * Achievements are awarded for setting a limit or for completing a financial transaction for the first time.
 * A factors route for the website to show the configured factors and modifiers, similar to the system pages that show groups and fs3skills.
+* House Management route for admin to track econ and status of houses.
+* House Overview route for admin and those that have the required permissions to view house economy and status page of a house.
+* econ/house command for those with permission.
+* econ/set can now also be used by those with the required permission to set econ for NPCs (-> house economy).
 
 ## Screenshots
 
@@ -83,7 +87,7 @@ You can configure achievements of type 'economy' to use a descriptive icon.
 
 
 #### /aresmush/game/config/website.yml
-Add a route to the top bar menu for the admin management page. Access to this route is limited to admin and coder roles. 
+Add routes to the top bar menu for the admin management pages. Access to these routes is limited to admin and coder roles. 
 
 For example:
 
@@ -93,9 +97,11 @@ For example:
       menu:
         - title: Economy Management
           route: econ-management
+        - title: House Management
+          route: house-management
     (...)
 
-Add a route to the top bar menu under 'System' for the configured factors and modifiers.
+Add a route to the top bar menu under 'System' for the configured factors and modifiers. This route is visible to everyone.
 
       top_navbar:
     (...)
@@ -136,6 +142,9 @@ Modifiers can be added here, with fields 'name', 'type', 'effect'. 'Effect' can 
 
 #### non_factors
 If certain factor attribute values are meant to be excluded from economy ventures, list them here. Characters that fall into this category won't have an 'Economy' tab on their webportal character page, nor will they be able to set their limit from the game client. Default value for this key is '{}'.
+
+#### permissions
+Two permissions have been defined here, 'view_house_econ' and 'manage_house_econ'. These permissions need to be associated with roles to be of use. For instance, you could create a role 'head_of_house' and add these two permissions to it, and also a role 'house_member' that onlx has the permission 'view_house_econ'.
 
 #### shortcuts
 Here is a space where you can define shortcuts for the commands.
