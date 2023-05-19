@@ -17,6 +17,13 @@ module AresMUSH
              if (skill)
                 mod = mod + effect * skill.rating / 2
              end
+          when "renown"
+             if Manage.is_extra_installed?("renown")
+                effect = a["effect"]
+                if (a["name"] == "Renown")
+                   mod = mod + effect * Renown.calculate_gained(char.name) / 200
+                end
+             end
           else
             type = a["type"]
             if Demographics.get_group(type) 

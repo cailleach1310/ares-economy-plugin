@@ -51,6 +51,17 @@ module AresMUSH
                       mod_list << entry
                    end
                 end
+             when "renown"
+                if Manage.is_extra_installed?("renown")
+                   effect = a["effect"]
+                   if (a["name"] == "Renown")
+                      mod = effect * Renown.calculate_gained(char.name) / 200
+                      if (mod != 0)
+                         entry = [a["name"], a["type"], mod]
+                         mod_list << entry
+                      end                   
+                   end
+                end
              else
                type = a["type"]
                if Demographics.get_group(type) 
