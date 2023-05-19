@@ -15,6 +15,10 @@ Should a player decide to have their character finally spend a certain amount of
 
 This plugin requires only custom code parts to be adjusted. It has been developed and tested with AresMUSH versions v0.108 - v1.0.5.
 
+However, you can modify the algorithms used for calculating economy limits, as is explained below.
+
+Also, this plugin now supports integration of the renown plugin, such as using renown as an economy modifier and listing renown of house members in the house overview route.
+
 ### What this plugin covers
 * Game client commands for players to set their economy limit, to view the economy limit and to view the economy chart. 
 * The webportal character page gets a new 'Economy' tab, where all these things are visible for the player, but not for other players.
