@@ -128,6 +128,7 @@ module AresMUSH
         block_message = t('economy.econ_block', :name => char.name, :days => days, :reason => reason)
         char.update(block_expiry: time.strftime("%Y-%m-%d"))
         char.update(block_info: block_message)
+        char.update(limit: 0)
      end
 
      def self.unblock_char(name)

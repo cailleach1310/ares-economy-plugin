@@ -28,7 +28,7 @@ module AresMUSH
         }}
 
         {
-           factor_group: factor_group,
+           factor_group: factor_group.titleize,
            factors: factors,
            modifiers: modifiers
         }
