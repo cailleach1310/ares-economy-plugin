@@ -146,8 +146,9 @@ Modifiers can be added here, with fields 'name', 'type', 'effect'. 'Effect' can 
 
 | Modifier Type        | System           | Effect  |
 | :---------------- | :--------------------| :----------------------------|
-| advantage     | fs3skills / d6system | rating * effect |
 | actionskill   | fs3skills      | rating / 2 * effect |
+| advantage     | fs3skills / d6system | rating * effect |
+| disadvantage  | d6system | rating * effect |
 | skill         | d6system       | round up (dice / 2) * effect |
 | renown        | renown         | renown gained / 200 * effect |
 | *group*       | demographics   | effect |  
