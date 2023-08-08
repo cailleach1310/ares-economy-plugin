@@ -34,21 +34,43 @@ module AresMUSH
            Economy.modifiers.each do |a|
              case a["type"]
              when "advantage"
-                adv = char.fs3_advantages.find(name: a["name"]).first
+                if FS3Skills.is_enabled?
+                   adv = char.fs3_advantages.find(name: a["name"]).first
+                   rating = adv ? adv.rating : 0
+                elsif Manage.is_extra_installed?("d6system")
+                   adv = char.d6advantages.find(name: a["name"]).first 
+                   rating = adv ? adv.rank : 0
+                else
+                   adv = nil
+                end
                 if (adv)
                    effect = a["effect"]
-                   mod = effect * adv.rating
+                   mod = effect * rating
                    entry = [a["name"], a["type"], mod]
                    mod_list << entry
                 end
              when "actionskill"
-                skill = char.fs3_action_skills.find(name: a["name"]).first
-                if (skill)
-                   effect = a["effect"]
-                   mod = effect * skill.rating / 2
-                   if (mod != 0)
-                      entry = [a["name"], a["type"], mod]
-                      mod_list << entry
+                if FS3Skills.is_enabled?
+                   skill = char.fs3_action_skills.find(name: a["name"]).first
+                   if (skill)
+                      effect = a["effect"]
+                      mod = effect * skill.rating / 2
+                      if (mod != 0)
+                         entry = [a["name"], a["type"], mod]
+                         mod_list << entry
+                      end
+                   end
+                end
+             when "skill"
+                if Manage.is_extra_installed?("d6system")
+                   skill = char.d6skills.find(name: a["name"]).first
+                   if (skill)
+                      effect = a["effect"]
+                      mod = effect * (D6System.get_dice(skill.rating)/2.to_f).ceil
+                      if (mod != 0)
+                         entry = [a["name"], a["type"], mod]
+                         mod_list << entry
+                      end
                    end
                 end
              when "renown"

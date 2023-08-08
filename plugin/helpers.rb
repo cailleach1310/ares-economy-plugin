@@ -7,16 +7,34 @@ module AresMUSH
           case a["type"]
           when "advantage"
              effect = a["effect"]
-             adv = char.fs3_advantages.find(name: a["name"]).first
+             if FS3Skills.is_enabled?
+                adv = char.fs3_advantages.find(name: a["name"]).first
+                rating = adv ? adv.rating : 0
+             elsif Manage.is_extra_installed?("d6system")
+                adv = char.d6advantages.find(name: a["name"]).first
+                rating = adv ? adv.rank : 0
+             else
+                adv = nil
+             end
              if (adv)
-                mod = mod + effect * adv.rating
+                mod = mod + effect * rating
              end
           when "actionskill"
-             effect = a["effect"]
-             skill = char.fs3_action_skills.find(name: a["name"]).first
-             if (skill)
-                mod = mod + effect * skill.rating / 2
+             if FS3Skills.is_enabled?
+                effect = a["effect"]
+                skill = char.fs3_action_skills.find(name: a["name"]).first
+                if (skill)
+                   mod = mod + effect * skill.rating / 2
+                end
              end
+          when "skill"
+             if Manage.is_extra_installed?("d6system")
+                effect = a["effect"]
+                skill = char.d6skills.find(name: a["name"]).first
+                if (skill)
+                   mod = mod + effect * (D6System.get_dice(skill.rating)/2.to_f).ceil
+                end
+             end  
           when "renown"
              if Manage.is_extra_installed?("renown")
                 effect = a["effect"]
