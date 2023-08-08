@@ -35,6 +35,14 @@ module AresMUSH
                    mod = mod + effect * (D6System.get_dice(skill.rating)/2.to_f).ceil
                 end
              end  
+          when "disadvantage"
+             if Manage.is_extra_installed?("d6system")
+                effect = a["effect"]
+                disadv = char.d6disadvantages.find(name: a["name"]).first
+                if (disadv)
+                   mod = mod + effect * disadv.rank
+                end
+             end
           when "renown"
              if Manage.is_extra_installed?("renown")
                 effect = a["effect"]
