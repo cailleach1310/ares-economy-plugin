@@ -17,7 +17,7 @@ This plugin requires only custom code parts to be adjusted. It has been develope
 
 However, you can modify the algorithms used for calculating economy limits, as is explained below.
 
-Also, this plugin now supports integration of the renown plugin, such as using renown as an economy modifier and listing renown of house members in the house overview route.
+Also, this plugin offers integration of the renown plugin, such as using renown as an economy modifier and listing renown of house members in the house overview route. If your game uses the d6system plugin, you can now add economy modifiers based on that system.
 
 ### What this plugin covers
 * Game client commands for players to set their economy limit, to view the economy limit and to view the economy chart. 
