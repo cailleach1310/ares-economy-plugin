@@ -1,15 +1,15 @@
   <div id="economy" class="tab-pane fade">
-        {{#if char.custom.limit}}
+        {{#if this.char.custom.limit}}
            <div class="row">
                <div class="col col-md-6 col-sm-12">
-                   <EconChart @list={{char.custom.econ_chart}} />
+                   <EconChart @list={{this.char.custom.econ_chart}} />
                </div>
                 <div class="col col-md-6 col-sm-12">
-                   <EconStats @limit={{char.custom.limit}} @info={{char.custom.block_info}} @expiry={{char.custom.block_expiry}} @modifiers={{char.custom.modifiers}} @name={{char.name}} />
+                   <EconStats @limit={{this.char.custom.limit}} @info={{this.char.custom.block_info}} @expiry={{this.char.custom.block_expiry}} @modifiers={{this.char.custom.modifiers}} @name={{this.char.name}} />
                 </div>
-               {{#if char.custom.econ_chart}}
+               {{#if this.char.custom.econ_chart}}
                {{else}}
-                    <div align=left> <button name="econset" {{action 'econSet' char.name}} class="btn btn-secondary">Set your limit</button></div>
+                    <div align=left> <button name="econset" {{action 'econSet' this.char.name}} class="btn btn-secondary">Set your limit</button></div>
                {{/if}}
            </div>
         {{/if}}
