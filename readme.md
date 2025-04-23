@@ -13,9 +13,10 @@ Players can set their limit once when needed. After the limit is set, it can onl
 
 Should a player decide to have their character finally spend a certain amount of money, admin will set an economy block on them, the duration of which is usally based on the economy chart of the player. During this economy block, the character will be unable to spend money on another financial venture. 
 
-This plugin requires only custom code parts to be adjusted. It has been developed and tested with AresMUSH versions v0.108 - v1.0.9.
+This plugin supports in its most recent version AresMUSH 2.0. If you have an older version of the plugin installed, please run the plugin install again.
 
-However, you can modify the algorithms used for calculating economy limits, as is explained below.
+Usually, only designated custom code parts need to be modified to integrate this plugin into your game.
+However, it is possible for you to modify the algorithm used for calculating economy limits, as is explained below.
 
 Also, this plugin offers integration of the renown plugin, such as using renown as an economy modifier and listing renown of house members in the house overview route. If your game uses the d6system plugin, you can now add economy modifiers based on that system.
 
