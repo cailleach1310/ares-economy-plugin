@@ -3,7 +3,7 @@ module AresMUSH
     class EconResetRequestHandler
       def handle(request)
         enactor = request.enactor
-        char = Character.find_one_by_name request.args[:name]
+        char = Character.find_one_by_name request.args['name']
 
         error = Website.check_login(request, true)
         return error if error

@@ -3,7 +3,7 @@ module AresMUSH
     class EconHouseRequestHandler
       def handle(request)
 
-        house = request.args[:house]
+        house = request.args['house']
 
         fields = Global.read_config("economy", "web_limit_fields")
         titles = fields.map { |f| f['title'] }

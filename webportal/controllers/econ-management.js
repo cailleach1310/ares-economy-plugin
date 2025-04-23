@@ -1,4 +1,4 @@
-import { computed } from '@ember/object';
+import { computed, action } from '@ember/object';
 import Controller from '@ember/controller';
 import { inject as service } from '@ember/service';
 
@@ -22,42 +22,47 @@ export default Controller.extend({
         return chars;
     }),
 
-    actions: {
+  @action
+  doSetEconBlock() {
+    this.set('setEconBlock', true);
+  },
 
-      EconUnblock(id) {
-        let api = this.gameApi;
-        api.requestOne('econUnblock', { name: id }, null)
-            .then( (response) => {
-                if (response.error) {
-                    return;
-                }
-                this.router.transitionTo('char', response.name);
-                this.flashMessages.success('Econ block has been removed!');
-            });
-       },
+  @action
+  econUnblock(id) {
+    let api = this.gameApi;
+    api.requestOne('econUnblock', { name: id }, null)
+        .then( (response) => {
+            if (response.error) {
+                return;
+            }
+            this.router.transitionTo('char', response.name);
+            this.flashMessages.success('Econ block has been removed!');
+        });
+  },
 
-      EconClearAll() {
-        let api = this.gameApi;
-        api.requestOne('econClearAll', {}, null)
-            .then( (response) => {
-                if (response.error) {
-                    return;
-                }
-                this.flashMessages.success('All econ limits have been cleared!');
-                this.send('reloadModel');
-            });
-       },
+  @action
+  econClearAll() {
+    let api = this.gameApi;
+    api.requestOne('econClearAll', {}, null)
+        .then( (response) => {
+            if (response.error) {
+                return;
+            }
+            this.flashMessages.success('All econ limits have been cleared!');
+            this.send('reloadModel');
+        });
+  },
 
-      EconReset(id) {
-        let api = this.gameApi;
-        api.requestOne('econReset', { name: id }, null)
-            .then( (response) => {
-                if (response.error) {
-                    return;
-                }
-                this.router.transitionTo('char',response.name);
-                this.flashMessages.success('Econ limit has been reset!');
-            });
-      }
-   }
+  @action
+  econReset(id) {
+    let api = this.gameApi;
+    api.requestOne('econReset', { name: id }, null)
+        .then( (response) => {
+            if (response.error) {
+                return;
+            }
+            this.router.transitionTo('char',response.name);
+            this.flashMessages.success('Econ limit has been reset!');
+        });
+  }
 });

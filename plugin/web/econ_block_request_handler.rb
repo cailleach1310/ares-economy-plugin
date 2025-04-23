@@ -3,9 +3,9 @@ module AresMUSH
     class EconBlockRequestHandler
       def handle(request)
         enactor = request.enactor
-        char = Character.find_one_by_name request.args[:name]
-        days = request.args[:days].to_i
-        reason = request.args[:reason]
+        char = Character.find_one_by_name request.args['name']
+        days = request.args['days'].to_i
+        reason = request.args['reason']
 
         error = Website.check_login(request, true)
         return error if error

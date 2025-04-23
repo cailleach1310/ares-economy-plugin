@@ -21,7 +21,7 @@
             <CharIconInline @char={{value}} />
           {{else}}
              {{#if (eq value 'action')}}
-                 <button name="reset" {{action 'EconReset' char.char.name}} class="btn btn-secondary">Reset</button>
+                 <button name="reset" {{on 'click' (fn this.econReset char.char.name)}} class="btn btn-secondary">Reset</button>
              {{else}}
                 {{value}}
              {{/if}} 
@@ -56,7 +56,7 @@
             <CharIconInline @char={{value}} />
           {{else}}
              {{#if (eq value 'action')}}
-                 <button name="unblock" {{action 'EconUnblock' char.char.name}} class="btn btn-secondary">Unblock</button>
+                 <button name="unblock" {{on 'click' (fn this.econUnblock char.char.name)}} class="btn btn-secondary">Unblock</button>
              {{else}}
                 {{value}}
              {{/if}}
@@ -76,9 +76,9 @@
 <EconBlockChar @setEconBlock={{this.setEconBlock}}/>
 
 <div align="right">
-<button name="econblock" {{action (mut this.setEconBlock) true}} class="btn btn-secondary">Econ Block</button>
+<button name="econblock" {{on 'click' this.doSetEconBlock}} class="btn btn-secondary">Econ Block</button>
 {{#if this.model.limits.investors}}
-<button name="clearlimits" {{action 'EconClearAll'}} class="btn btn-secondary">Clear All Limits</button>
+<button name="clearlimits" {{on 'click' this.econClearAll}} class="btn btn-secondary">Clear All Limits</button>
 {{/if}}
 </div>
 

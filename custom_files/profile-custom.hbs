@@ -9,7 +9,7 @@
                 </div>
                {{#if this.char.custom.econ_chart}}
                {{else}}
-                    <div align=left> <button name="econset" {{action 'econSet' this.char.name}} class="btn btn-secondary">Set your limit</button></div>
+                    <div align=left> <button name="econset" {{on 'click' (fn this.econSet this.char.name)}} class="btn btn-secondary">Set your limit</button></div>
                {{/if}}
            </div>
         {{/if}}
